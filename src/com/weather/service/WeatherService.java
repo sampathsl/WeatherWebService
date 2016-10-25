@@ -28,11 +28,11 @@ public class WeatherService implements WeatherServiceInit {
 		
 		try 
 		{
-			sb.append("<Weather><WeatherData>");
+			sb.append("<Weather>");
 			String response = sendGetResponse(fio.getUrl(latitude,longitude));
 			JSONObject json = new JSONObject(response);
 			sb.append(XML.toString(json));
-			sb.append("</WeatherData></Weather>");
+			sb.append("</Weather>");
 		} 
 		catch (Exception e) 
 		{
@@ -57,12 +57,12 @@ public class WeatherService implements WeatherServiceInit {
 		
 	    if(minutely.minutes() < 0)
 	    {
-	    	sb.append("<Weather><WeatherData><minutely>No minutely data</minutely></WeatherData></Weather>");
+	    	sb.append("<Weather><minutely>No minutely data</minutely></Weather>");
 	    }
 	    else
 	    {
-	    	//sb.append("<Weather><WeatherData>"+getEscapedXml(fio.getMinutely().toString())+"</WeatherData></Weather>");
-	    	sb.append("<Weather><WeatherData>");
+	    	//sb.append("<Weather>"+getEscapedXml(fio.getMinutely().toString())+"</Weather>");
+	    	sb.append("<Weather>");
 			String response = "";
 			
 			try 
@@ -76,7 +76,7 @@ public class WeatherService implements WeatherServiceInit {
 			
 			JSONObject json = new JSONObject(response);
 			sb.append(XML.toString(json));
-			sb.append("</WeatherData></Weather>");
+			sb.append("</Weather>");
 	    }
 	        
 	    return sb.toString();
@@ -98,12 +98,12 @@ public class WeatherService implements WeatherServiceInit {
 	    //In case there is no hourly data available
 	    if(hourly.hours() < 0)
 	    {
-	    	sb.append("<Weather><WeatherData><hourly>No hourly data</hourly></WeatherData></Weather>");
+	    	sb.append("<Weather><hourly>No hourly data</hourly></Weather>");
 	    }
 	    else
 	    {
-    		// sb.append("<Weather><WeatherData>"+getEscapedXml(fio.getHourly().toString())+"</WeatherData></Weather>");
-	    	sb.append("<Weather><WeatherData>");
+    		// sb.append("<Weather>"+getEscapedXml(fio.getHourly().toString())+"</Weather>");
+	    	sb.append("<Weather>");
 			String response = "";
 			
 			try 
@@ -117,7 +117,7 @@ public class WeatherService implements WeatherServiceInit {
 			
 			JSONObject json = new JSONObject(response);
 			sb.append(XML.toString(json));
-			sb.append("</WeatherData></Weather>");
+			sb.append("</Weather>");
 	    }
 		
 		return sb.toString();
@@ -139,12 +139,12 @@ public class WeatherService implements WeatherServiceInit {
 	    //In case there is no hourly data available
 	    if(daily.days() < 0)
 	    {
-	    	sb.append("<Weather><WeatherData><daily>No daily data</daily></WeatherData></Weather>");
+	    	sb.append("<Weather><daily>No daily data</daily></Weather>");
 	    }
 	    else
 	    {
-    		// sb.append("<Weather><WeatherData>"+getEscapedXml(fio.getDaily().toString())+"</WeatherData></Weather>");
-	    	sb.append("<Weather><WeatherData>");
+    		// sb.append("<Weather>"+getEscapedXml(fio.getDaily().toString())+"</Weather>");
+	    	sb.append("<Weather>");
 	    	String response = "";
 			try 
 			{
@@ -156,7 +156,7 @@ public class WeatherService implements WeatherServiceInit {
 			}
 			JSONObject json = new JSONObject(response);
 			sb.append(XML.toString(json));
-			sb.append("</WeatherData></Weather>");
+			sb.append("</Weather>");
 	    }
 		
 		return sb.toString();
@@ -174,8 +174,8 @@ public class WeatherService implements WeatherServiceInit {
 		
 		StringBuilder sb = new StringBuilder();
 		
-		// sb.append("<Weather><WeatherData>"+getEscapedXml(fio.getFlags().toString())+"</WeatherData></Weather>");
-		sb.append("<Weather><WeatherData>");
+		// sb.append("<Weather>"+getEscapedXml(fio.getFlags().toString())+"</Weather>");
+		sb.append("<Weather>");
 		String response = "";
 		try 
 		{
@@ -187,7 +187,7 @@ public class WeatherService implements WeatherServiceInit {
 		}
 		JSONObject json = new JSONObject(response);
 		sb.append(XML.toString(json));
-		sb.append("</WeatherData></Weather>");
+		sb.append("</Weather>");
 		
 		return sb.toString();
 		
@@ -207,12 +207,12 @@ public class WeatherService implements WeatherServiceInit {
 		
 	    if(alerts.NumberOfAlerts() <= 0)
 	    {
-	    	sb.append("<Weather><WeatherData><Alerts>No alert data</Alerts></WeatherData></Weather>");
+	    	sb.append("<Weather><Alerts>No alert data</Alerts></Weather>");
 	    }
 	    else 
 	    {
-	        // sb.append("<Weather><WeatherData>"+getEscapedXml(fio.getAlerts().toString())+"</WeatherData></Weather>");
-	    	sb.append("<Weather><WeatherData>");
+	        // sb.append("<Weather>"+getEscapedXml(fio.getAlerts().toString())+"</Weather>");
+	    	sb.append("<Weather>");
 			String response = "";
 			try 
 			{
@@ -224,7 +224,7 @@ public class WeatherService implements WeatherServiceInit {
 			}
 			JSONObject json = new JSONObject(response);
 			sb.append(XML.toString(json));
-			sb.append("</WeatherData></Weather>");
+			sb.append("</Weather>");
 	        
 	    }
 	    
